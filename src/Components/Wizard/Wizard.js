@@ -84,6 +84,11 @@ export class Wizard extends Component {
                             Cancel
                         </Link>
                     </button>
+                    <button>
+                        <Link to='/' className='complete-button'>
+                            Complete
+                        </Link>
+                    </button>
                 </form>
             </div>
         )
