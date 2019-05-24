@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import House from '../House/House'
+import {Link} from 'react-router-dom'
 
 export class Dashboard extends Component {
     render() {
@@ -7,6 +8,11 @@ export class Dashboard extends Component {
             <div>
                 <h1>Dashboard</h1>
                 <House />
+                <button>
+                    <Link to='/wizard' className='add-button'>
+                        Add New Property
+                    </Link>
+                </button>
             </div>
         )
     }

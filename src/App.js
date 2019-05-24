@@ -1,15 +1,19 @@
 import React from 'react';
 import './App.css';
-import Dashboard from './Components/Dashboard/Dashboard'
+// import {Provider} from 'react-redux'
+import {HashRouter as Router}  from 'react-router-dom'
 import Header from './Components/Header/Header'
-import Wizard from './Components/Wizard/Wizard'
+import routes from './routes'
 
 function App() {
   return (
     <div className="App">
-      <Dashboard />
-      <Header />
-      <Wizard />
+      <Router>
+        <Header />
+          {/* <Provider> */}
+            {routes}
+          {/* </Provider> */}
+      </Router>
     </div>
   );
 }
