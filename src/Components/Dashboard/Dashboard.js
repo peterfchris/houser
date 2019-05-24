@@ -41,26 +41,31 @@ export class Dashboard extends Component {
 
     render() {
         return (
-            <div>
-                <h1>Dashboard</h1>
-                <button>
-                    <Link to='/wizard' className='add-button'>
-                        Add New Property
-                    </Link>
-                </button>
-                {this.state.propertyList.map(property => {
-                    console.log(property)
-                    return (
-                        <House
-                        key={property.user_id}
-                        name={property.property_name}
-                        address={property.address}
-                        city={property.city}
-                        state={property.state}
-                        zipcode={property.zipcode}
-                        delete={this.handleDeleteProperty} />
-                    ) 
-                })}
+            <div className="dashboard">
+                <div className="dash-header">
+                    <p className="dash-title">Dashboard</p>
+                    <button className="add-property-button">
+                        <Link to='/wizard' className='add-button'>
+                            Add New Property
+                        </Link>
+                    </button>
+                </div>
+                <div className="listings"><h3>Home Listings</h3></div>
+                <div >
+                    {this.state.propertyList.map(property => {
+                        console.log(property)
+                        return (
+                            <House
+                            key={property.user_id}
+                            name={property.property_name}
+                            address={property.address}
+                            city={property.city}
+                            state={property.state}
+                            zipcode={property.zipcode}
+                            delete={this.handleDeleteProperty} />
+                        ) 
+                    })}
+                </div>
             </div>
         )
     }

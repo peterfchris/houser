@@ -10,13 +10,13 @@ export class House extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="house">
                 <p>{this.props.name}</p>
                 <p>{this.props.address}</p>
                 <p>{this.props.city}</p>
                 <p>{this.props.state}</p>
                 <p>{this.props.zipcode}</p>
-                <button onClick={this.props.delete}>Delete</button>
+                <button className="delete" onClick={this.props.delete}>X</button>
             </div>
         )
     }
