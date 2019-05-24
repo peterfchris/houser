@@ -26,6 +26,19 @@ export class Dashboard extends Component {
         })
     }
 
+    handleDeleteProperty = () => {
+        Axios.delete(`/api/deleteProperty/${this.state.id}`)
+        .then(data => {
+            this.setState({
+                name: data,
+                address: data,
+                city: data, 
+                state: data,
+                zipcode: data
+            })
+        })
+    }
+
     render() {
         return (
             <div>
@@ -44,7 +57,8 @@ export class Dashboard extends Component {
                         address={property.address}
                         city={property.city}
                         state={property.state}
-                        zipcode={property.zipcode} />
+                        zipcode={property.zipcode}
+                        delete={this.handleDeleteProperty} />
                     ) 
                 })}
             </div>

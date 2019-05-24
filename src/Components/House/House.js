@@ -16,7 +16,7 @@ export class House extends Component {
                 <p>{this.props.city}</p>
                 <p>{this.props.state}</p>
                 <p>{this.props.zipcode}</p>
-                <button>Delete</button>
+                <button onClick={this.props.delete}>Delete</button>
             </div>
         )
     }
