@@ -15,3 +15,4 @@ massive(CONNECTION_STRING).then((database) => {
 // Endpoints here
 app.get('/api/properties', controller.properties)
 app.post('/api/addProperty', controller.addProperty)
+app.delete('/api/deleteProperty/:id', controller.deleteProperty)

@@ -9,15 +9,24 @@ module.exports = {
             res.status(500).send(error)
         })
     },
-    addProperty: (req, res) => {
+    addProperty: (req, res, next) => {
         const db = req.app.get('db')
-        const {name, address, city, state, zipcode}
-        db.add_property()
-        .then((newProperty) => {
-            res.status(200).send(newProperty)
+        const {property_name, address, city, state, zipcode} = req.body
+        db.add_property([property_name, address, city, state, zipcode])
+        .then(() => {
+            res.sendStatus(200)
         })
         .catch(error => {
             res.status(500).send(error)
+        })
+    },
+    deleteProperty: (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        db.delete_property(id)
+        .then(() => res.sendStatus(200))
+        .catch(err => {
+            res.status(500).send(err)
         })
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
+import Axios from 'axios';
 
 export class Wizard extends Component {
     constructor() {
@@ -12,6 +13,19 @@ export class Wizard extends Component {
             state: '',
             zipcode: 0
         }
+    }
+
+    handleAddProperty = (e) => {
+        Axios.post('/api/addProperty', {e})
+        .then(results => {
+            this.setState({
+                name: results.data,
+                address: results.data,
+                city: results.data,
+                state: results.data,
+                zipcode: results.data,
+            })
+        })
     }
 
     handlePropertyChange = (e) => {
@@ -84,7 +98,8 @@ export class Wizard extends Component {
                             Cancel
                         </Link>
                     </button>
-                    <button>
+                    <button 
+                    onClick={this.handleAddProperty} >
                         <Link to='/' className='complete-button'>
                             Complete
                         </Link>
